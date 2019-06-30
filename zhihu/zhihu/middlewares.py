@@ -6,9 +6,9 @@
 # https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
-import logging
 
-class QianyucrawlSpiderMiddleware(object):
+
+class ZhihuSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the spider middleware does not modify the
     # passed objects.
@@ -56,7 +56,7 @@ class QianyucrawlSpiderMiddleware(object):
         spider.logger.info('Spider opened: %s' % spider.name)
 
 
-class QianyucrawlDownloaderMiddleware(object):
+class ZhihuDownloaderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the downloader middleware does not modify the
     # passed objects.
@@ -100,10 +100,4 @@ class QianyucrawlDownloaderMiddleware(object):
         pass
 
     def spider_opened(self, spider):
-
         spider.logger.info('Spider opened: %s' % spider.name)
-class ProxyMiddleware(object):
-    logger=logging.getLogger(__name__)
-    def process_exception(self,request,exception,spider):
-        self.logger.debug('Get Exception')
-        return request
